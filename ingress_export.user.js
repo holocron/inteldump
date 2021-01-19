@@ -101,7 +101,7 @@ function wrapper() {
         str = title;
         str = str.replace(/\"/g, "\\\"");
         str = str.replace(";", "_");
-        str = '"'+str+'"' + "," + href + "," + '"'+image+'"';
+        str = portalGuid + "," + '"'+str+'"' + "," + href + "," + '"'+image+'"';
         if (window.plugin.keys && (typeof window.portals[portalGuid] !== "undefined")) {
             var keyCount =window.plugin.keys.keys[portalGuid] || 0;
             str = str + "," + keyCount;
@@ -160,7 +160,7 @@ function wrapper() {
     };
 
     self.generateCsvData = function() {
-        var csvData = 'Name, Latitude, Longitude, Image' + "\n";
+        var csvData = 'GUID, Name, Latitude, Longitude, Image' + "\n";
         $.each(window.master_portal_list, function(key, value) {
             csvData += (value + "\n");
         });
