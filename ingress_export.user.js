@@ -1,11 +1,11 @@
 // ==UserScript==
-// @id iitc-plugin-ingressportalcsvexport@zetaphor
+// @id iitc-plugin-ingressportalcsvexport@superloach
 // @name IITC Plugin: Ingress Portal CSV Export
 // @category Information
 // @version 0.0.5
-// @namespace http://github.com/Zetaphor/IITC-Ingress-Portal-CSV-Export
-// @updateURL https://raw.githubusercontent.com/Zetaphor/IITC-Ingress-Portal-CSV-Export/master/ingress_export.user.js
-// @downloadURL https://raw.githubusercontent.com/Zetaphor/IITC-Ingress-Portal-CSV-Export/master/ingress_export.user.js
+// @namespace http://github.com/superloach/IITC-Ingress-Portal-CSV-Export
+// @updateURL https://raw.githubusercontent.com/superloach/IITC-Ingress-Portal-CSV-Export/master/ingress_export.user.js
+// @downloadURL https://raw.githubusercontent.com/superloach/IITC-Ingress-Portal-CSV-Export/master/ingress_export.user.js
 // @description Exports portals to a CSV list
 // @include https://*ingress.com/intel*
 // @include http://*ingress.com/intel*
@@ -19,6 +19,8 @@
 /*global map:false */
 /*global L:false */
 function wrapper() {
+	// original author was Zetaphor (http://github.com/Zetaphor/IITC-Ingress-Portal-CSV-Export)
+
     // in case IITC is not available yet, define the base plugin object
     if (typeof window.plugin !== "function") {
         window.plugin = function() {};
