@@ -1,11 +1,11 @@
 // ==UserScript==
-// @id inteldump@superloach
+// @id inteldump@holocron
 // @name IITC Plugin: inteldump
 // @category Information
-// @version 0.0.5
-// @namespace https://github.com/superloach/inteldump
-// @updateURL https://github.com/superloach/inteldump/raw/ichiji/inteldump.user.js
-// @downloadURL https://github.com/superloach/inteldump/raw/ichiji/inteldump.user.js
+// @version 0.0.6
+// @namespace https://github.com/holocron/inteldump
+// @updateURL https://github.com/holocron/inteldump/raw/ichiji/inteldump.user.js
+// @downloadURL https://github.com/holocron/inteldump/raw/ichiji/inteldump.user.js
 // @description Exports portals to a JSON list
 // @include https://intel.ingress.com/*
 // @include http://intel.ingress.com/*
