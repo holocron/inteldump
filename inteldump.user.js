@@ -103,7 +103,7 @@ function inteldumpWrapper() {
 
 	self.drawRectangle = function() {
 		var bounds = window.map.getBounds();
-		var bounds = [[bounds._southWest.lat, bounds._southWest.lng], [bounds._northEast.lat, bounds._northEast.lng]];
+		bounds = [[bounds._southWest.lat, bounds._southWest.lng], [bounds._northEast.lat, bounds._northEast.lng]];
 		L.rectangle(bounds, {color: "#00ff11", weight: 1, opacity: 0.9}).addTo(window.map);
 	};
 
@@ -142,7 +142,16 @@ function inteldumpWrapper() {
 	};
 
 	self.generateJSON = function() {
-		return values(self.portals);
+		var arr = [];
+		for (var e in self.portals) {
+		    arr.push({
+			Name: self.portals[e].name,
+			Image: self.portals[e].image,
+			Latitude: self.portals[e].lat,
+			Longitude: self.portals[e].lng
+		    });
+		};
+		return arr;
 	};
 
 	self.downloadJSON = function() {
@@ -154,7 +163,7 @@ function inteldumpWrapper() {
 	}
 
 	self.showDialog = function showDialog(o) {
-		var csvData = self.generateJSON();
+		var csvData = JSON.stringify(self.generateJSON());
 
 		var data = `
 		<form name='maxfield' action='#' method='post' target='_blank'>
@@ -171,7 +180,7 @@ function inteldumpWrapper() {
 		`;
 
 		var dia = window.dialog({
-			title: "Portal CSV Export",
+			title: "Portal JSON Export",
 			html: data
 		}).parent();
 		$(".ui-dialog-buttonpane", dia).remove();
@@ -263,8 +272,8 @@ function inteldumpWrapper() {
 			<p id="totalPortals" style="display: none; margin:0 0 0 5px;">Total Portals Scraped: <span id="totalScrapedPortals">0</span></p>
 
 			<div id="csvControlsBox" style="display: none; margin-top: 5px; padding: 5px 0 5px 5px; border-top: 1px solid #20A8B1;">
-				<a style="margin: 0 5px 0 5px;" onclick="window.plugin.inteldump.gen();" title="View the CSV portal data.">View Data</a>
-				<a style="margin: 0 5px 0 5px;" onclick="window.plugin.inteldump.downloadCSV();" title="Download the CSV portal data.">Download CSV</a>
+				<a style="margin: 0 5px 0 5px;" onclick="window.plugin.inteldump.gen();" title="View the JSON portal data.">View Data</a>
+				<a style="margin: 0 5px 0 5px;" onclick="window.plugin.inteldump.downloadJSON();" title="Download the JSON portal data.">Download CSV</a>
 			</div>
 		</div>
 		`;
